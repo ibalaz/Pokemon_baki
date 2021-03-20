@@ -1,0 +1,28 @@
+<h2 mat-dialog-title> {{data.name | titlecase}} details</h2>
+<mat-dialog-content style="border-bottom: 1px black; border-top: 1px black">
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <mat-list>
+        <mat-list-item>Type: {{type | titlecase}}</mat-list-item>
+        <mat-list-item>Weight: {{weight}}</mat-list-item>
+        <mat-list-item>Height: {{height}}</mat-list-item>
+        <mat-list-item>Signature abilities: {{abilities | titlecase}}</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-list>
+        <mat-list-item style="width: 150px">Double damage to: {{doubleTo | titlecase}}</mat-list-item>
+        <mat-list-item>Double damage from: {{doubleFrom | titlecase}}</mat-list-item>
+        <mat-list-item>Half damage to: {{halfTo | titlecase}}</mat-list-item>
+        <mat-list-item>Half damage from: {{halfFrom | titlecase}}</mat-list-item>
+        <mat-list-item>No damage to: {{noTo | titlecase}}</mat-list-item>
+        <mat-list-item>No damage from: {{noFrom | titlecase}}</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn"  mat-dialog-close>Close</button>
+</mat-dialog-actions>

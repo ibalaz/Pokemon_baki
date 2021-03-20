@@ -1,0 +1,31 @@
+<mat-card style="width: 75%; margin: 0 auto;">
+  <mat-card-title style="text-align: center"> Version 1</mat-card-title>
+  <mat-card-content>
+    <table [dataSource]="tableData" mat-table matSort style="width: 100%">
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Name</th>
+        <td *matCellDef="let data" mat-cell>{{data.name | titlecase }}</td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th *matHeaderCellDef mat-header-cell> Type</th>
+        <td *matCellDef="let data" mat-cell>{{data.type | titlecase }}</td>
+      </ng-container>
+      <ng-container matColumnDef="hw">
+        <th *matHeaderCellDef mat-header-cell> Height/Weight</th>
+        <td *matCellDef="let data" mat-cell>{{data.height}} / {{data.weight}}</td>
+      </ng-container>
+      <ng-container matColumnDef="sigAbility">
+        <th *matHeaderCellDef mat-header-cell> Signature Ability</th>
+        <td *matCellDef="let data" mat-cell>{{data.sigAbility | titlecase }}</td>
+      </ng-container>
+      <ng-container matColumnDef="baseExp">
+        <th *matHeaderCellDef mat-header-cell> Base experience</th>
+        <td *matCellDef="let data" mat-cell>{{data.baseExp}}</td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+    <mat-paginator (page)="onPageChange($event)" [length]="totalCount" [pageSizeOptions]="[5, 10, 20]"
+                   [pageSize]="10"></mat-paginator>
+  </mat-card-content>
+</mat-card>

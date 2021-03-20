@@ -1,0 +1,23 @@
+<mat-card style="width: 45%; margin: 0 auto;">
+  <mat-card-title style="text-align: center"> Version 2</mat-card-title>
+  <mat-card-content>
+    <table [dataSource]="tableData" mat-table matSort style="width: 100%">
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell mat-sort-header> Name </th>
+        <td *matCellDef="let data" mat-cell>{{data.name | titlecase }}</td>
+      </ng-container>
+      <ng-container matColumnDef="details">
+        <th *matHeaderCellDef mat-header-cell> Details </th>
+        <td *matCellDef="let data" mat-cell>
+          <button mat-icon-button (click)="onDetailsButtonClick(data.name, data.url)">
+            <mat-icon style="height: 50px; width: 50px" svgIcon="icon-pokeball"></mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+    <mat-paginator (page)="onPageChange($event)" [length]="totalCount" [pageSizeOptions]="[5, 10, 20]"
+                   [pageSize]="10"></mat-paginator>
+  </mat-card-content>
+</mat-card>
