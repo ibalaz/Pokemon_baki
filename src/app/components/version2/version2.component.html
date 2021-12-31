@@ -1,6 +1,7 @@
 <mat-card style="width: 45%; margin: 0 auto;">
   <mat-card-title style="text-align: center"> Version 2</mat-card-title>
   <mat-card-content>
+    <input style="width: 33%" matInput placeholder="Name" (keyup)="searchForPokemon($event)">
     <table [dataSource]="tableData" mat-table matSort style="width: 100%">
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell mat-sort-header> Name </th>

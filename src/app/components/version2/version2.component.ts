@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {PokemonService} from '../pokemon.service';
+import {PokemonService} from '../../services/pokemon.service';
 import {MatDialog} from '@angular/material/dialog';
 import {PokeDetailsDialogComponent} from './detailsDialog/pokeDetailsDialog.component';
 
 @Component({
   selector: 'app-version2',
-  templateUrl: './version2.component.html',
-  styleUrls: ['./version2.component.css']
+  templateUrl: './version2.component.html'
 })
 export class Version2Component implements OnInit {
 
   totalCount = 0;
   tableData = new MatTableDataSource();
   displayedColumns = ['name', 'details'];
+  pokemonName: string = '';
 
   constructor(public service: PokemonService, public dialog: MatDialog) { }
 
@@ -42,6 +42,10 @@ export class Version2Component implements OnInit {
   onPageChange(event: any): void {
     console.log(event);
     this.getTableData(event.pageSize * event.pageIndex, event.pageSize);
+  }
+
+  searchForPokemon(event: any): void {
+    console.log(event);
   }
 
 }

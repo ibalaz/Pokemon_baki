@@ -1,5 +1,11 @@
 <mat-card style="width: 75%; margin: 0 auto;">
   <mat-card-title style="text-align: center"> Version 1</mat-card-title>
+  <div style="">
+    <input style="width: 33%" matInput placeholder="Name" [disabled]="pokemonType != ''" [(ngModel)]="pokemonName" >
+    <input style="width: 33%" matInput placeholder="Type" [disabled]="pokemonName != ''" [(ngModel)]="pokemonType" >
+    <button mat-raised-button (click)="searchPokemon()">Search</button>
+
+  </div>
   <mat-card-content>
     <table [dataSource]="tableData" mat-table matSort style="width: 100%">
       <ng-container matColumnDef="name">
